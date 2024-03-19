@@ -1,0 +1,25 @@
+server:
+  port: 8090
+  forward-headers-strategy: native
+spring:
+  application:
+    name: watchdog
+  boot:
+    admin:
+      context-path: /admin
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+logging:
+  level:
+    web: debug
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 90
+      total-size-cap: 20GB
+  file:
+    name: logs/${spring.application.name}.log
